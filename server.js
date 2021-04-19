@@ -16,9 +16,19 @@ const server = app.listen(port, () => {
   app.use(cors());
     
   app.use(express.static('website'));
-  
-
-  
+    
   app.get("/getdata", (req, res) => {
     res.send(projectData);
+})
+
+app.post("/addentry", (req, res) => {
+     
+    projectData = {
+        temperature : req.body.temperature,
+        date : req.body.date,
+        user_response : req.body.user_response      
+    };
+    
+    res.send(projectData);
+
 })
