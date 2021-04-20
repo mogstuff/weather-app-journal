@@ -4,6 +4,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 8000;
 
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
+const apiKey = process.env.OW_API_KEY;
+
+
 const server = app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   });
@@ -32,3 +39,10 @@ app.post("/addentry", (req, res) => {
     res.send(projectData);
 
 })
+
+app.get("/getsalt", (req, res) => {
+
+    let data = { "OW_KEY" : apiKey  }
+    res.send(data);
+
+} )
