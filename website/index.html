@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,23 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Journal App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
+    <link
+    link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
 </head>
 <body>
     <header><h1>What's It Like Out?</h1></header>
     <main>
+
+        <div id="wrapper">
+
       <section id="form">
-        <input type="text" id="zip">
-        <button id="generate">Generate</button>
+
+
+        <div class="row">
+            <label for="city" >City</label>
+          
+        </div>
+    
+        <div class="row">
+            <input type="text" id="city" placeholder="enter city" />        
+        </div>
+
+        
+        <div class="row">
+        <label for="zip_code" >ZIP/Post Code</label>
+      
+    </div>
+
+    <div class="row">
+        <input type="text" id="zip_code" placeholder="enter zip/postcode" />        
+    </div>
+
+    <div class="row">
+        <label for="country_code" >Country Code</label>      
+    </div>
+
+    <div class="row">
+      <input type="text" placeholder="enter country code" id="country_code"/>
+    </div>
+
+    <div class="row">
+        <label for="feeling">How do you feel today?</label>       
+    </div>
+
+    <div class="row">
+        <textarea name="feeling" id="feeling" cols="40" rows="7" placeholder="enter how you are feeling today"></textarea>
+    </div>
+
+    <div class="row" id="button-wrapper">
+        <button id="generate" aria-label="add journal entry">Generate</button>
+    </div>
       </section>
 
       <section id="result">
-          <div id="temperature"></div>
-          <div id="date"></div>
-          <div id="userinput"></div>
+        <h3>Latest Entry</h3>
+        <div id="weather">
+
+            <i class="fas fa-sun fa-3x"></i>
+
+            <i class="fas fa-cloud-sun fa-3x"></i>
+        
+            <i class="fas fa-cloud  fa-3x"></i>
+
+            <i class="fas fa-cloud-sun-rain fa-3x"></i>
+            <i class="fas fa-cloud-rain fa-3x"></i>
+
+            <i class="fas fa-cloud-showers-heavy fa-3x"></i>
+
+            <i class="far fa-snowflake fa-3x"></i>
+        
+        </div>
+          <div id="date">Date</div>
+          <div id="location">Location</div>
+         <div id="temperature">Temperature</div>         
+          <div id="user_feeling">User Feeling</div>
+
       </section>
 
+    </div>
+
     </main>
-    <footer></footer>
+    <footer><div class="footer-text">&copy; Mark Morgan 2021</div></footer>
+    <script src="app.js"></script>
 </body>
 </html>
