@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Journal App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">    
     <link
     link
     rel="stylesheet"
@@ -22,6 +22,9 @@
 
       <section id="form">
 
+        <div class="row">
+            <div id="errors-summary"></div>
+        </div>
 
         <div class="row">
             <label for="city" >City</label>
@@ -46,7 +49,7 @@
         <label for="country_code" >Country Code</label>      
     </div>
 
-    <div class="row">
+    <div class="row" id="txt-country-code">
       <input type="text" placeholder="enter country code" id="country_code"/>
     </div>
 
@@ -55,7 +58,7 @@
     </div>
 
     <div class="row">
-        <textarea name="feeling" id="feeling" cols="40" rows="7" placeholder="enter how you are feeling today"></textarea>
+        <textarea name="feeling" id="feeling"  placeholder="enter how you are feeling today"></textarea>
     </div>
 
     <div class="row" id="button-wrapper">
@@ -65,24 +68,11 @@
 
       <section id="result">
         <h3>Latest Entry</h3>
+      
         <div id="weather">
-
-            <i class="fas fa-sun fa-3x"></i>
-
-            <i class="fas fa-cloud-sun fa-3x"></i>
-        
-            <i class="fas fa-cloud  fa-3x"></i>
-
-            <i class="fas fa-cloud-sun-rain fa-3x"></i>
-            <i class="fas fa-cloud-rain fa-3x"></i>
-
-            <i class="fas fa-cloud-showers-heavy fa-3x"></i>
-
-            <i class="far fa-snowflake fa-3x"></i>
-        
         </div>
-          <div id="date">Date</div>
-          <div id="location">Location</div>
+        <div id="location">Location</div>
+          <div id="date">Date</div>          
          <div id="temperature">Temperature</div>         
           <div id="user_feeling">User Feeling</div>
 

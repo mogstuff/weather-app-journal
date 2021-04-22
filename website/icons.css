@@ -1,0 +1,63 @@
+.clear-sky{
+    background-image: url('http://openweathermap.org/img/wn/01d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.few-clouds{
+    background-image: url('http://openweathermap.org/img/wn/02d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.scattered-clouds{
+    background-image: url('http://openweathermap.org/img/wn/03d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.broken-clouds{
+    background-image: url('http://openweathermap.org/img/wn/04d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+
+.shower-rain{
+    background-image: url('http://openweathermap.org/img/wn/09d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.rain{
+    background-image: url('http://openweathermap.org/img/wn/10d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.thunderstorm{
+    background-image: url('http://openweathermap.org/img/wn/11d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.snow{
+    background-image: url('http://openweathermap.org/img/wn/13d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
+
+.mist{
+    background-image: url('http://openweathermap.org/img/wn/50d@2x.png');
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+}
