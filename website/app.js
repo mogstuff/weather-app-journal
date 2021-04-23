@@ -11,7 +11,7 @@ const dateToday = document.getElementById('date');
 const temperature = document.getElementById('temp');
 const feelingToday = document.getElementById('content');
 
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?';
+let baseURL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const apiKey = '4fc7c2f853c096220e99e961df027e50';
 
