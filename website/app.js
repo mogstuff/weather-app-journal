@@ -1,61 +1,66 @@
 // UI Elements
 const userLocation = document.getElementById('location');
-const zip = document.getElementById('zip_code');
+const zip = document.getElementById('zip');
 const city = document.getElementById('city');
 const countryCode = document.getElementById('country_code');
-const feelingTxt = document.getElementById('user_feeling');
+const feelingTxt = document.getElementById('feelings');
 
 const weatherToday = document.getElementById('weather');
 const dateToday = document.getElementById('date');
 
-const temperature = document.getElementById('temperature');
-const feelingToday = document.getElementById('feeling');
+const temperature = document.getElementById('temp');
+const feelingToday = document.getElementById('content');
 
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather?';
-let apiKey = '';
+
+const apiKey = '4fc7c2f853c096220e99e961df027e50';
 
 
 document.getElementById('generate').addEventListener('click', async (event) => {
-    // clear any error messages
-    resetErrors();
 
-    // reset the UI
+    clearUIErrors();
+
     resetUI();
 
-    // set date (en-GB) UK format
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+    // set date (en-GB) UK format https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
     let date = new Date().toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     // just show hours and minutes
     let time = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     date += ' ' + time;
 
-    let weatherData = await getWeather(zip.value, city.value, countryCode.value);
+    // I am English and we don't have ZIP codes, so you can pass city name instead
+    let currentWeatherData = await getWeather(zip.value, city.value, countryCode.value);
 
     console.info('Weather Data: ');
-    console.log(weatherData);
+    console.log(currentWeatherData);
 
     // guard clause for invalid data
-    if(weatherData.cod != '200'){
-        displayError(weatherData.message);
+    if (currentWeatherData.cod != '200') {
+        displayError(currentWeatherData.message);
         return;
     }
 
-    if(typeof(feelingToday) === undefined){
+    if (typeof (feelingTxt) === undefined) {
         displayError('Please enter how you are feeling today');
         return;
     }
 
-    if(feelingToday.value == ''){
+    if (feelingTxt.value == '') {
         displayError('Please enter how you are feeling today');
         return;
     }
 
     let journalEntry = {
-        location: weatherData.name + " " + weatherData.sys.country,
+        location: currentWeatherData.name + " " + currentWeatherData.sys.country,
         date: date,
-        temperature: weatherData.main.temp,
-        weather: weatherData.main,
-        content: feelingToday.value
+        temperature: currentWeatherData.main.temp,
+        temp_min : currentWeatherData.main.temp_min,
+        temp_max : currentWeatherData.main.temp_max,
+        feels_like : currentWeatherData.main.feels_like,
+        weather: currentWeatherData.main,
+        content: feelingTxt.value,
+        description : currentWeatherData.weather[0].description,
+        icon:  currentWeatherData.weather[0].icon
     };
 
     postJournalEntry('/addentry', journalEntry).then(updateUI()).catch((error) => {
@@ -64,28 +69,8 @@ document.getElementById('generate').addEventListener('click', async (event) => {
 })
 
 
-// get the API Key value
-const getSalt = async () => {
-
-    const req = await fetch('/getsalt', {});
-
-    try {
-        const data = await req.json();
-        return data;
-    } catch (error) {
-        console.error('cannot retrieve Api key', error);
-    }
-}
-
 // GET data from Open Weather API
 const getWeather = async (zipCode, cityName, countryCode) => {
-
-    let keyData = await getSalt();
-
-    apiKey = keyData.OW_KEY;
-
-    console.info('Api Key: ');
-    console.log(apiKey);
 
     let url = getUrl(zipCode, cityName, countryCode);
 
@@ -134,7 +119,7 @@ const getUrl = (zipCode, cityName, countryCode) => {
     }
 
     if (zipCode.length > 0 && cityName.length < 1 && countryCode.toUpperCase() === 'US') {
-        return baseURL + 'zip=' + zipCode + ',' + countryCode + '&units=metric' + '&appid='  + apiKey;
+        return baseURL + 'zip=' + zipCode + ',' + countryCode + '&units=metric' + '&appid=' + apiKey;
     }
 
     // US only uses ZIP codes (?) so just default to using City Name 
@@ -147,7 +132,7 @@ const getUrl = (zipCode, cityName, countryCode) => {
 const postJournalEntry = async (url = '', data = {}) => {
 
     console.info('posting data to Api');
-    console.log(JSON.stringify(data) );
+    console.log(data);
 
     const response = await fetch(url, {
         method: 'POST',
@@ -188,7 +173,7 @@ const updateUI = async () => {
         dateToday.innerHTML = data.date;
         temperature.innerHTML = data.temperature + ' Celsius';
         userLocation.innerHTML = data.location;
-        feelingTxt.innerHTML = data.feeling;
+        feelingToday.innerHTML = data.content;
 
     } catch (error) {
         displayError(error);
@@ -197,11 +182,12 @@ const updateUI = async () => {
 
 }
 
-const resetUI = ()=> {
+const resetUI = () => {
+
     dateToday.innerHTML = '';
-        temperature.innerHTML =  '';
-        userLocation.innerHTML =  '';
-        feelingTxt.innerHTML = '';
+    temperature.innerHTML = '';
+    userLocation.innerHTML = '';
+    feelingTxt.innerHTML = '';
 }
 
 
@@ -249,8 +235,8 @@ const getIconClass = (iconCode) => {
 
 const displayError = (errorMessage, elementId = 'errors-summary') => {
 
-    resetErrors();
-  
+    clearUIErrors();
+
     let element = document.getElementById(elementId);
     let p = document.createElement('p');
     p.textContent = errorMessage.charAt(0).toUpperCase() + errorMessage.slice(1);
@@ -259,7 +245,7 @@ const displayError = (errorMessage, elementId = 'errors-summary') => {
     document.getElementById(elementId).focus();
 }
 
-const resetErrors = () => {
+const clearUIErrors = () => {
     let errors = document.getElementById('errors-summary');
     errors.innerHTML = '';
 }

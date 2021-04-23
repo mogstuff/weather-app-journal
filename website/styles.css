@@ -19,11 +19,13 @@ body {
 }
 
 header {
-    background-color: grey;
+    background-color: #375397;
+    color:rgb(199, 197, 197);
 }
 
 header h1 {
     text-align: center;
+   
 }
 
 main {
@@ -38,11 +40,14 @@ main {
     width: 760px;
     margin-top: 2.0rem;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 #form {
     display: grid;
     grid-gap: 1rem;
+    flex:1;
 }
 
 label {
@@ -68,13 +73,15 @@ input {
 }
 
 #generate {
-    padding: 0.5rem;
+    padding: 0.25rem;
     margin: 0.25rem;
     width: 60%;
     margin-left: 5rem;
+    background-color: #fb6542;
+    font-weight: bold;
 }
 
-#feeling {
+#feelings {
     padding: 0.25rem;
     margin: 0.25rem;
     min-width: 80%;
@@ -86,6 +93,7 @@ input {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+    flex:1;
 }
 
 #result h3 {
@@ -104,13 +112,13 @@ input {
     padding: 0.5rem;
 }
 
-#temperature {
+#temp {
     border: 1px solid black;
     margin: 0.5rem;
     padding: 0.5rem;
 }
 
-#user_feeling{
+#content{
     border: 1px solid black;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -118,12 +126,13 @@ input {
 
 
 footer {
-    text-align: center;
-    background-color: grey;
+    text-align: center;   
     height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #375397;
+    color:rgb(199, 197, 197);
 }
 
 .error {

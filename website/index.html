@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Journal App</title>
-    <link rel="stylesheet" href="styles.css">    
-    <link
-    link
-    rel="stylesheet"
-    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-    crossorigin="anonymous"
-  />
+    <link rel="stylesheet" href="styles.css">
+    <link link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
+
 <body>
-    <header><h1>What's It Like Out?</h1></header>
+    <header>
+        <h1>What's It Like Out?</h1>
+    </header>
     <main>
 
         <div id="wrapper">
 
-      <section id="form">
+            <section id="form">
 
-        <div class="row">
-            <div id="errors-summary"></div>
+                <div class="row">
+                    <div id="errors-summary"></div>
+                </div>
+
+                <div class="row">
+                    <label for="city">City</label>
+
+                </div>
+
+                <div class="row">
+                    <input type="text" id="city" placeholder="enter city" />
+                </div>
+
+
+                <div class="row">
+                    <label for="zip">ZIP/Post Code</label>
+
+                </div>
+
+                <div class="row">
+                    <input type="text" id="zip" placeholder="enter zip code here" />
+                </div>
+
+                <div class="row">
+                    <label for="country_code">Country Code</label>
+                </div>
+
+                <div class="row" id="txt-country-code">
+                    <input type="text" placeholder="enter country code" id="country_code" />
+                </div>
+
+                <div class="row">
+                    <label for="feeling">How do you feel today?</label>
+                </div>
+
+                <div class="row">
+                    <textarea name="feelings" id="feelings" placeholder="enter how you are feeling today"></textarea>
+                </div>
+
+                <div class="row" id="button-wrapper">
+                    <button id="generate" aria-label="add journal entry">Generate</button>
+                </div>
+            </section>
+
+            <section id="result">
+
+                <div id="entryHolder">
+
+                    <h3>Latest Entry</h3>
+
+                    <div id="weather" >
+                    </div>
+                    <div id="location">Location</div>
+                    <div id="date">Date</div>
+                    <div id="temp">Temperature</div>
+                    <div id="content">User Feeling</div>
+
+                </div>
+            </section>
+
         </div>
-
-        <div class="row">
-            <label for="city" >City</label>
-          
-        </div>
-    
-        <div class="row">
-            <input type="text" id="city" placeholder="enter city" />        
-        </div>
-
-        
-        <div class="row">
-        <label for="zip_code" >ZIP/Post Code</label>
-      
-    </div>
-
-    <div class="row">
-        <input type="text" id="zip_code" placeholder="enter zip/postcode" />        
-    </div>
-
-    <div class="row">
-        <label for="country_code" >Country Code</label>      
-    </div>
-
-    <div class="row" id="txt-country-code">
-      <input type="text" placeholder="enter country code" id="country_code"/>
-    </div>
-
-    <div class="row">
-        <label for="feeling">How do you feel today?</label>       
-    </div>
-
-    <div class="row">
-        <textarea name="feeling" id="feeling"  placeholder="enter how you are feeling today"></textarea>
-    </div>
-
-    <div class="row" id="button-wrapper">
-        <button id="generate" aria-label="add journal entry">Generate</button>
-    </div>
-      </section>
-
-      <section id="result">
-        <h3>Latest Entry</h3>
-      
-        <div id="weather">
-        </div>
-        <div id="location">Location</div>
-          <div id="date">Date</div>          
-         <div id="temperature">Temperature</div>         
-          <div id="user_feeling">User Feeling</div>
-
-      </section>
-
-    </div>
 
     </main>
-    <footer><div class="footer-text">&copy; Mark Morgan 2021</div></footer>
+    <footer>
+        <div class="footer-text">&copy; Mark Morgan 2021</div>
+    </footer>
     <script src="app.js"></script>
 </body>
+
 </html>
