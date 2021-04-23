@@ -1,13 +1,13 @@
-// UI Elements
+// Form UI Elements
 const userLocation = document.getElementById('location');
 const zip = document.getElementById('zip');
 const city = document.getElementById('city');
 const countryCode = document.getElementById('country_code');
 const feelingTxt = document.getElementById('feelings');
 
+// entryHolder UI Elements
 const weatherToday = document.getElementById('weather');
 const dateToday = document.getElementById('date');
-
 const temperature = document.getElementById('temp');
 const feelingToday = document.getElementById('content');
 

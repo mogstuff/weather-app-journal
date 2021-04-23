@@ -21,4 +21,4 @@ Validation has also been tested by entering incorrect entries.
 
 ## Deployment
 
-
+The project has been deployed to the Heroku Platform here https://weather-journal-project.herokuapp.com/
