@@ -29,9 +29,14 @@ app.post('/addentry', (req, res) => {
      
     projectData = {
         temperature : req.body.temperature ,
+        max: req.body.temp_max,
+        min: req.body.temp_min,
+        feels : req.body.feels_like,
         date : req.body.date,
         content : req.body.content,
-        location : req.body.location      
+        location : req.body.location,
+        icon: req.body.icon,
+        description: req.body.description
     }
       
     res.send(projectData);

@@ -38,16 +38,17 @@ main {
 
 #wrapper {
     width: 760px;
-    margin-top: 2.0rem;
-    padding: 0.5rem;
+    margin-top: 0.25rem;
+    padding: 0.25rem;
     display: flex;
     flex-direction: column;
 }
 
 #form {
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 0.25rem;
     flex:1;
+
 }
 
 label {
@@ -68,17 +69,19 @@ input {
 
 #button-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:flex-end;
+    align-items: flex-end;
+     margin-left: 10%;
+    margin-right: 10%;
 }
 
 #generate {
-    padding: 0.25rem;
-    margin: 0.25rem;
-    width: 60%;
-    margin-left: 5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 50%;   
     background-color: #fb6542;
     font-weight: bold;
+  
 }
 
 #feelings {
@@ -89,11 +92,14 @@ input {
 }
 
 #result {
-    margin-top: 2.0rem;
+    margin-top: 0.25rem;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     flex:1;
+    justify-content: flex-start;
+    max-width: 100%;
+    
 }
 
 #result h3 {
@@ -101,25 +107,54 @@ input {
 }
 
 #date {
-    border: 1px solid black;
+    
     margin: 0.5rem;
     padding: 0.5rem;
 }
 
 #location {
-    border: 1px solid black;
+    
     margin: 0.5rem;
     padding: 0.5rem;
 }
 
 #temp {
-    border: 1px solid black;
+   
     margin: 0.5rem;
     padding: 0.5rem;
 }
 
+
+
+#description {
+    
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+
+#min-temp {
+    
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+
+#max-temp {
+    
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+#feels-like{
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+
+
 #content{
-    border: 1px solid black;
+  
     margin: 0.5rem;
     padding: 0.5rem;
 }
@@ -141,6 +176,15 @@ footer {
 
 #errors-summary{
     margin-left: 10vw;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+#entryHolder{
+    display: grid;
+    grid-template-rows: auto;
 }
 
 

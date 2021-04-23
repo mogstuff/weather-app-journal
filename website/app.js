@@ -15,6 +15,7 @@ let baseURL = 'http://api.openweathermap.org/data/2.5/weather?';
 
 const apiKey = '4fc7c2f853c096220e99e961df027e50';
 
+document.getElementById('h3-entry').innerText = '';
 
 document.getElementById('generate').addEventListener('click', async (event) => {
 
@@ -166,14 +167,30 @@ const updateUI = async () => {
 
     try {
 
+        document.getElementById('h3-entry').innerText = 'Latest Entry';
+
         const data = await req.json();
         console.info('data for updating UI: ');
         console.log(data);
 
-        dateToday.innerHTML = data.date;
-        temperature.innerHTML = data.temperature + ' Celsius';
-        userLocation.innerHTML = data.location;
-        feelingToday.innerHTML = data.content;
+        dateToday.innerHTML = '<span class="bold">Date:</span>' + data.date;
+        temperature.innerHTML = '<span class="bold">Temp: </span>' +  data.temperature + ' Celsius';
+        userLocation.innerHTML = '<span class="bold">Location: </span>' +  data.location;
+        feelingToday.innerHTML = '<span class="bold">How you feel today:</span> ' +  data.content;
+
+        document.getElementById('description').innerHTML = '<span class="bold">Description: </span>' +  data.description;
+        document.getElementById('min-temp').innerHTML = '<span class="bold">Min: </span>' +  data.min;
+        document.getElementById('max-temp').innerHTML = '<span class="bold">Max: </span>' +  data.max;
+        document.getElementById('feels-like').innerHTML = '<span class="bold">Feels Like: </span>' +  data.feels;
+
+        let iconClass = getIconClass(data.icon);
+
+        console.log('icon class: ');
+        console.log(iconClass);
+
+        document.getElementById('icon').classList.add(iconClass);
+
+       document.getElementById('result').scrollIntoView({ behavior: "smooth" });
 
     } catch (error) {
         displayError(error);
