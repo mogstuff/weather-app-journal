@@ -22,3 +22,8 @@ Validation has also been tested by entering incorrect entries.
 ## Deployment
 
 The project has been deployed to the Heroku Platform here https://weather-journal-project.herokuapp.com/
+
+There were some difficulties with deploying to Heroku
+
+- missing package.json file - resolved by running npm init
+- installing heroku cli and running - heroku logs --tail --app weather-journal-project
